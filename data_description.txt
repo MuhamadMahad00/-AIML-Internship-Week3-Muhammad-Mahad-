@@ -1,0 +1,160 @@
+================================================================================
+KAGGLE HOUSE PRICES DATASET - FEATURE DESCRIPTIONS
+================================================================================
+
+TARGET VARIABLE:
+SalePrice - The property's sale price in dollars (what we're predicting)
+
+NUMERICAL FEATURES (81 total):
+================================================================================
+
+SIZE FEATURES:
+- LotFrontage: Linear feet of street connected to property
+- LotArea: Lot size in square feet
+- GrLivArea: Above grade (ground) living area square feet
+- TotalBsmtSF: Total square feet of basement area
+- GarageArea: Size of garage in square feet
+- 1stFlrSF: First Floor square feet
+- 2ndFlrSF: Second Floor square feet
+- BsmtFinSF1: Type 1 finished square feet
+- BsmtFinSF2: Type 2 finished square feet
+- BsmtUnfSF: Unfinished square feet of basement
+- TotalSF (ENGINEERED): Total of all area measurements
+
+QUALITY & CONDITION FEATURES:
+- OverallQual: Overall material and finish quality (1-10)
+- OverallCond: Overall condition rating (1-10)
+- ExterQual: Exterior material quality (Excellent/Good/Average/Fair/Poor)
+- ExterCond: Present condition of exterior material
+- BsmtQual: Height of basement (Excellent/Good/Average/Fair/Poor)
+- BsmtCond: General condition of basement
+- KitchenQual: Kitchen quality (Excellent/Good/Average/Fair/Poor)
+- FireplaceQu: Fireplace quality
+- GarageQual: Garage quality
+- GarageCond: Garage condition
+- QualCond (ENGINEERED): Quality × Condition interaction
+
+GARAGE FEATURES:
+- GarageCars: Number of cars garage can hold
+- GarageType: Garage location/type
+- GarageYrBlt: Year garage was built
+
+BATHROOM & ROOM FEATURES:
+- BsmtFullBath: Full bathrooms in basement
+- BsmtHalfBath: Half bathrooms in basement
+- FullBath: Full bathrooms above ground
+- HalfBath: Half bathrooms above ground
+- Bedroom: Number of bedrooms above basement
+- Kitchen: Number of kitchens
+- TotRmsAbvGrd: Total rooms above ground
+- TotalBaths (ENGINEERED): Total of all bathrooms
+
+TEMPORAL FEATURES:
+- YearBuilt: Original construction year
+- YearRemodAdd: Remodel date
+- MoSold: Month sold
+- YrSold: Year sold
+- HouseAge (ENGINEERED): Age of house at sale
+- Decade (ENGINEERED): Decade property was built
+
+PRICE METRICS (ENGINEERED):
+- PricePerSF: SalePrice divided by living area (price per square foot)
+- PricePerRoom: SalePrice divided by room count
+
+CATEGORICAL FEATURES (Many converted to numeric):
+- MSZoning: General zoning classification
+- Street: Road access type
+- Alley: Type of alley access
+- LotShape: General shape of property
+- LandContour: Flatness of the property
+- Utilities: Type of utilities available
+- LotConfig: Lot configuration
+- LandSlope: Slope of property
+- Neighborhood: Physical locations within Ames city limits
+- Condition1: Proximity to main road or railroad
+- Condition2: Proximity to main road or railroad (if a second is present)
+- BldgType: Type of dwelling
+- HouseStyle: Style of dwelling
+- RoofStyle: Type of roof
+- RoofMatl: Roof material
+- Exterior1st: Exterior covering on house
+- Exterior2nd: Exterior covering on house (if more than one material)
+- MasVnrType: Masonry veneer type
+- Foundation: Type of foundation
+- Heating: Type of heating
+- HeatingQC: Heating quality and condition
+- CentralAir: Central air conditioning
+- Electrical: Electrical system
+- SaleType: Type of sale
+- SaleCondition: Condition of sale
+
+SPECIAL FEATURES:
+- Fireplaces: Number of fireplaces
+- PoolArea: Pool area in square feet
+- Fence: Fence quality
+- MiscFeature: Miscellaneous feature not covered in other categories
+- MiscVal: Value of miscellaneous feature
+- OpenPorchSF: Open porch area in square feet
+- EnclosedPorch: Enclosed porch area in square feet
+- 3SsnPorch: Three season porch area in square feet
+- ScreenPorch: Screen porch area in square feet
+- Paved Drive: Paved driveway
+
+================================================================================
+DATA PROCESSING NOTES:
+================================================================================
+
+MISSING VALUE TREATMENT:
+- Replaced with 0 for features where missing indicates "None" (e.g., Fireplace)
+- Filled with mode for categorical features
+- Filled with median for numerical features
+
+ENCODING METHODS:
+1. Label Encoding: Ordinal quality features (Poor=1, Excellent=5)
+2. One-Hot Encoding: Nominal categorical features
+3. Frequency Encoding: High-cardinality categorical features
+
+SCALING & TRANSFORMATION:
+- StandardScaler: Zero mean, unit variance
+- MinMaxScaler: Scaled to [0,1] range
+- RobustScaler: Robust to outliers
+- Log Transformation: Applied to skewed features
+- Box-Cox Transformation: Optimal power transformation
+
+FEATURE ENGINEERING:
+- TotalSF: Composite size metric
+- PricePerSF: Normalized price per square foot
+- QualCond: Quality-Condition interaction term
+- HouseAge: Years since construction
+- TotalBaths: Total of all bathrooms
+
+================================================================================
+DATASET STATISTICS:
+================================================================================
+
+Training Set: 1,460 properties (80%)
+Test Set: 1,459 properties (20%)
+Total Features (Raw): 81
+Total Features (After Engineering): ~192
+Final Selected Features: 27
+Dimensionality Reduction: 85.9%
+
+SalePrice Distribution:
+- Mean: $180,921
+- Std Dev: $79,442
+- Min: $34,900
+- Max: $755,000
+- Skewness: 1.88 (Right-skewed)
+- Log-transformed Skewness: 0.12 (Nearly Normal)
+
+================================================================================
+REFERENCES:
+================================================================================
+
+Dataset Source: Kaggle House Prices: Advanced Regression Techniques
+https://www.kaggle.com/c/house-prices-advanced-regression-techniques
+
+Original Data Codebook: Published by Dean De Cock
+Research: "Ames Housing Dataset" - Iowa State University
+
+For more information, visit the Kaggle competition page.
